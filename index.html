@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escuela Segura - Prevención de la Violencia Escolar | U.E. Andrés de Santa Cruz</title>
+
+<style>
+/* RESET & ESTILOS GENERALES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f8fc;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+/* ENCABEZADO */
+header {
+    background: linear-gradient(135deg, #174c64 0%, #28647a 50%, #4f91a8 100%);
+    color: white;
+    padding: 35px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+header h1 {
+    font-size: 34px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+header p {
+    font-size: 17px;
+    opacity: 0.95;
+    font-weight: 300;
+}
+
+/* MENÚ DE NAVEGACIÓN */
+nav {
+    background: #1d4656;
+    padding: 12px 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+nav a {
+    color: #e3f2fd;
+    text-decoration: none;
+    margin: 6px 12px;
+    font-weight: 600;
+    font-size: 15px;
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.2s;
+}
+
+nav a:hover {
+    color: #ffe7a3;
+    transform: translateY(-2px);
+}
+
+/* PORTADA */
+.portada {
+    min-height: 460px;
+    background: 
+        linear-gradient(rgba(20, 50, 70, 0.65), rgba(20, 50, 70, 0.65)),
+        url("imagenes/foto21.jpeg") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.portada div {
+    color: white;
+    max-width: 800px;
+}
+
+.portada h2 {
+    font-size: 42px;
+    margin-bottom: 18px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.portada p {
+    font-size: 20px;
+    line-height: 1.5;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 15px 25px;
+    border-radius: 30px;
+    backdrop-filter: blur(4px);
+}
+
+/* SECCIONES */
+section {
+    padding: 60px 8%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+section h2 {
+    text-align: center;
+    color: #28647a;
+    margin-bottom: 30px;
+    font-size: 32px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+section h2::after {
+    content: '';
+    width: 70px;
+    height: 4px;
+    background: #4f91a8;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+section p {
+    text-align: justify;
+    margin-bottom: 18px;
+    font-size: 16px;
+}
+
+/* CONTENEDOR DE TARJETAS */
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.tarjeta {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.tarjeta:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.tarjeta h3 {
+    color: #28647a;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.tarjeta p, .tarjeta ul {
+    font-size: 15px;
+    color: #555;
+    flex-grow: 1;
+}
+
+.tarjeta ul {
+    padding-left: 20px;
+}
+
+.tarjeta ul li {
+    margin-bottom: 8px;
+}
+
+/* FONDOS ESPECIALES */
+.sec-azul {
+    background: #e5f3f8;
+}
+
+.sec-rosa {
+    background: #fff0f1;
+}
+
+.sec-verde {
+    background: #e9f5ed;
+}
+
+.sec-blanca {
+    background: #ffffff;
+}
+
+.sec-destacada-brigadistas {
+    background: #f0f7fa;
+    border: 2px solid #a8d8ea;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 25px rgba(23, 76, 100, 0.08);
+}
+
+/* SECCIÓN CON IMAGEN LATERAL / DESTACADA */
+.seccion-destacada {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.seccion-destacada .texto {
+    flex: 1 1 400px;
+}
+
+.seccion-destacada .imagen-lateral {
+    flex: 1 1 350px;
+}
+
+.seccion-destacada .imagen-lateral img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+}
+
+/* VISOR DE INFOGRAMA DE BRIGADISTAS */
+.infograma-container {
+    text-align: center;
+    margin-top: 25px;
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+}
+
+.infograma-img {
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.infograma-img:hover {
+    transform: scale(1.01);
+}
+
+.instruccion-click {
+    font-size: 14px;
+    color: #28647a;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* CONSEJOS Y DESTACADOS */
+.consejo-contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.consejo {
+    background: white;
+    border-left: 6px solid #4f91a8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.consejo img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.consejo h3 {
+    color: #174c64;
+    margin-bottom: 8px;
+}
+
+/* ACTIVIDAD INTERACTIVA */
+.actividad-box {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 750px;
+    margin: 20px auto 0;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.actividad-box img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.btn-opcion {
+    background: #4f91a8;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 8px;
+    transition: background 0.3s, transform 0.2s;
+    display: inline-block;
+}
+
+.btn-opcion:hover {
+    background: #28647a;
+    transform: scale(1.03);
+}
+
+#resultado {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.resultado-exito {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.resultado-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* MODAL PARA VER IMAGEN EN TAMAÑO COMPLETO */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.88);
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-contenido {
+    max-width: 95%;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(255,255,255,0.2);
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* PIE DE PÁGINA */
+footer {
+    background: #174c64;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+    margin-top: 40px;
+}
+
+footer h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #ffe7a3;
+}
+
+footer p {
+    text-align: center;
+    opacity: 0.9;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+/* ADAPTACIÓN CELULARES */
+@media (max-width: 768px) {
+    nav a {
+        margin: 4px 6px;
+        font-size: 13px;
+    }
+
+    .portada h2 {
+        font-size: 28px;
+    }
+
+    .portada p {
+        font-size: 16px;
+    }
+
+    section {
+        padding: 40px 5%;
+    }
+
+    section h2 {
+        font-size: 26px;
+    }
+
+    .seccion-destacada {
+        flex-direction: column;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ENCABEZADO -->
+<header>
+    <h1>ESCUELA SEGURA</h1>
+    <p>Unidos por una convivencia escolar sin violencia | U.E. Andrés de Santa Cruz</p>
+</header>
+
+<!-- MENÚ DE NAVEGACIÓN -->
+<nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#tipos">Tipos</a>
+    <a href="#causas">Causas y Consecuencias</a>
+    <a href="#brigadistas">Ruta y Brigadistas</a>
+    <a href="#prevencion">Prevención</a>
+    <a href="#valores">Valores</a>
+    <a href="#orientacion">Orientación</a>
+    <a href="#actividad">Actividad</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+
+<!-- PORTADA -->
+<div class="portada" id="inicio">
+    <div>
+        <h2>¡Alto a la violencia escolar!</h2>
+        <p>
+            Construyamos juntos una escuela donde todos podamos
+            aprender, compartir y convivir con respeto.
+        </p>
+    </div>
+</div>
+
+<!-- INTRODUCCIÓN CON IMAGEN LATERAL -->
+<section class="sec-blanca">
+    <h2>¿Qué es la violencia escolar?</h2>
+    <div class="seccion-destacada">
+        <div class="texto">
+            <p>
+                La violencia escolar es cualquier comportamiento que causa daño
+                físico, psicológico o emocional a un estudiante dentro del ambiente
+                educativo. Puede presentarse mediante golpes, insultos, amenazas,
+                burlas, discriminación o acoso a través de las redes sociales.
+            </p>
+            <p>
+                Es importante conocer esta problemática porque afecta la seguridad,
+                la tranquilidad y el aprendizaje de los estudiantes. Por eso,
+                esta página tiene como propósito informar, orientar y enseñar
+                diferentes maneras de prevenir la violencia escolar.
+            </p>
+        </div>
+        <div class="imagen-lateral">
+            <img src="imagenes/foto8.jpeg" alt="Ambiente escolar pacífico y seguro">
+        </div>
+    </div>
+</section>
+
+<!-- TIPOS DE VIOLENCIA -->
+<section class="sec-azul" id="tipos">
+    <h2>Tipos de violencia escolar</h2>
+
+    <div class="contenedor">
+
+        <div class="tarjeta">
+            <img src="imagenes/foto2.jpeg" alt="Agresión física entre estudiantes">
+            <h3>Violencia física</h3>
+            <p>
+                Se presenta cuando una persona agrede físicamente a otra,
+                provocando daño, dolor o lesiones corporales mediante golpes o empujones.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <img src="imagenes/foto4.jpeg" alt="Discusión y violencia verbal entre estudiantes">
+            <h3>Violencia verbal</h3>
+            <p>
+                Consiste en utilizar insultos, burlas, apodos ofensivos,
+                gritos o palabras despectivas que humillan a la víctima.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <img src="imagenes/foto24.jpeg" alt="Estudiante afectado emocionalmente">
+            <h3>Violencia psicológica</h3>
+            <p>
+                Son acciones que dañan la autoestima y tranquilidad emocional:
+                amenazas, aislamiento social provocado, intimidación y chantaje.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <img src="imagenes/foto6.jpeg" alt="Estudiante con teléfono sufriendo ciberacoso">
+            <h3>Ciberacoso</h3>
+            <p>
+                Ocurre mediante internet y redes sociales, utilizando
+                mensajes hostiles, publicaciones dañinas o rumores para difamar.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CAUSAS Y CONSECUENCIAS -->
+<section class="sec-blanca" id="causas">
+    <h2>Causas y consecuencias</h2>
+
+    <div class="contenedor">
+
+        <div class="tarjeta">
+            <img src="imagenes/foto9.jpeg" alt="Conflicto social y causas de violencia">
+            <h3>Principales causas</h3>
+            <ul>
+                <li>Falta de respeto y empatía por los demás.</li>
+                <li>Dificultades en el entorno familiar o social.</li>
+                <li>Falta de información en resolución de conflictos.</li>
+                <li>Prejuicios, intolerancia y discriminación.</li>
+                <li>Uso irresponsable de medios y redes sociales.</li>
+            </ul>
+        </div>
+
+        <div class="tarjeta">
+            <img src="imagenes/foto10.jpeg" alt="Consecuencias emocionales en el estudiante">
+            <h3>Consecuencias</h3>
+            <ul>
+                <li>Temor constante e inseguridad personal.</li>
+                <li>Sentimientos de tristeza, ansiedad y baja autoestima.</li>
+                <li>Grandes dificultades de concentración al estudiar.</li>
+                <li>Bajo rendimiento escolar e incluso deserción.</li>
+                <li>Deterioro grave en las relaciones interpersonales.</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<!-- SECCIÓN NUEVA: RUTA DE ACTUACIÓN Y BRIGADISTAS ESCOLARES -->
+<section class="sec-destacada-brigadistas" id="brigadistas">
+    <h2>Ruta de Actuación y Brigadistas Escolares</h2>
+
+    <p style="text-align: center; max-width: 900px; margin: 0 auto 20px;">
+        Conoce la ruta de intervención y el rol fundamental de la brigada estudiantil 
+        <strong>"Educando para convivir"</strong> de la Unidad Educativa Andrés de Santa Cruz, impulsado en alianza con la 
+        <strong>Fundación ACLO, GPE y Educación en Voz Alta</strong> para promover una convivencia pacífica y armónica.
+    </p>
+
+    <div class="infograma-container">
+        <p class="instruccion-click">🔍 Haz clic sobre la imagen para ver el mapa de actuación en pantalla completa</p>
+        <img src="imagenes/Brigadistas_075006.png" alt="Ruta de actuación de la Comisión de Convivencia Pacífica y Armónica - Brigadistas Educando para convivir" class="infograma-img" onclick="abrirModal(this.src)">
+    </div>
+</section>
+
+<!-- PREVENCIÓN -->
+<section class="sec-verde" id="prevencion">
+    <h2>¿Cómo prevenir la violencia escolar?</h2>
+
+    <div class="contenedor">
+
+        <div class="tarjeta">
+            <img src="imagenes/foto20.jpeg" alt="Estudiantes conviviendo pacíficamente">
+            <h3>Respetar a los demás</h3>
+            <p>
+                Tratar a todos los compañeros con cortesía y amabilidad,
+                valorando las diferencias individuales de cada uno.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <img src="imagenes/foto22.jpeg" alt="Compañeros sonriendo sin burlas">
+            <h3>Evitar las burlas</h3>
+            <p>
+                Rechazar el uso de apodos hirientes, comentarios sarcásticos
+                o chistes despectivos hacia otros compañeros.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <img src="imagenes/foto11.jpeg" alt="Diálogo respetuoso entre jóvenes">
+            <h3>Dialogar</h3>
+            <p>
+                Resolver cualquier malentendido o desacuerdo a través de las
+                palabras, escuchando pacientemente y sin recurrir a la violencia.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <img src="imagenes/foto23.jpeg" alt="Estudiante buscando la ayuda de una docente">
+            <h3>Buscar ayuda</h3>
+            <p>
+                Acudir inmediatamente con un profesor, consejero escolar o familiar
+                cuando se perciba cualquier abuso o violencia.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- VALORES -->
+<section class="sec-rosa" id="valores">
+    <h2>Valores para una buena convivencia</h2>
+
+    <div class="contenedor">
+
+        <div class="tarjeta">
+            <img src="imagenes/foto19.jpeg" alt="Jóvenes en actitud de respeto">
+            <h3>Respeto</h3>
+            <p>
+                Aceptar a cada persona por quién es, reconociendo el valor
+                de sus ideas, cultura, apariencia y sentimientos.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <img src="imagenes/foto16.jpeg" alt="Brindando consuelo y empatía">
+            <h3>Empatía</h3>
+            <p>
+                Ponerse en el lugar del otro para comprender cómo se siente
+                y actuar con sensibilidad ante sus necesidades.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <img src="imagenes/foto15.jpeg" alt="Diversidad tolerante y armónica">
+            <h3>Tolerancia</h3>
+            <p>
+                Aceptar la diversidad de opiniones, formas de vida y
+                orígenes sin juzgar ni marginar a nadie.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <img src="imagenes/foto12.jpeg" alt="Apoyo mutuo y solidaridad">
+            <h3>Solidaridad</h3>
+            <p>
+                Brindar una mano amiga y ayudar a los compañeros que estén
+                pasando por momentos difíciles o requieran apoyo.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ORIENTACIÓN Y AYUDA -->
+<section class="sec-blanca" id="orientacion">
+    <h2>Orientación y ayuda</h2>
+
+    <p>
+        Si observas o vives una situación de violencia escolar,
+        recuerda que <strong>no estás solo</strong>. Es fundamental hablar con una
+        persona adulta de confianza en la Unidad Educativa Andrés de Santa Cruz.
+    </p>
+
+    <div class="consejo-contenedor">
+        <div class="consejo">
+            <img src="imagenes/foto13.jpeg" alt="Consejera escolar orientando al alumno">
+            <h3>Rompe el silencio</h3>
+            <p>
+                Pedir ayuda no es cobardía, es un acto de valentía. Al contar
+                lo que sucede proteges tu bienestar y el de tus compañeros.
+            </p>
+        </div>
+
+        <div class="consejo">
+            <img src="imagenes/foto17.jpeg" alt="Diálogo de orientación familiar y docente">
+            <h3>Piensa en las consecuencias</h3>
+            <p>
+                Antes de reaccionar de forma impulsiva o destructiva, piensa en cómo
+                se sentirá la otra persona. Un pequeño gesto amable puede cambiarlo todo.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ACTIVIDAD INTERACTIVA -->
+<section class="sec-azul" id="actividad">
+    <h2>¡Pon a prueba tus conocimientos!</h2>
+
+    <div class="actividad-box">
+        <img src="imagenes/foto18.jpeg" alt="Estudiantes resolviendo actividades en el aula">
+        <p style="font-size: 18px; font-weight: bold; margin-bottom: 15px; text-align: center;">
+            Si observas que un compañero recibe burlas u hostigamiento constantemente, ¿qué deberías hacer?
+        </p>
+
+        <button class="btn-opcion" onclick="responder(true)">
+            Apoyarlo y buscar ayuda de un adulto
+        </button>
+
+        <button class="btn-opcion" onclick="responder(false)">
+            Reírme o ignorar la situación
+        </button>
+
+        <div id="resultado"></div>
+    </div>
+</section>
+
+<!-- SOBRE EL PROYECTO -->
+<section class="sec-blanca" id="contacto">
+    <h2>Sobre nuestro proyecto</h2>
+
+    <div class="seccion-destacada">
+        <div class="imagen-lateral">
+            <img src="imagenes/foto7.jpeg" alt="escudo del colegio Andres de Santa Cruz">
+        </div>
+        <div class="texto">
+            <p>
+                Esta página web fue desarrollada como parte del proyecto integral
+                orientado a prevenir la violencia escolar y concientizar a los estudiantes
+                de la <strong>Unidad Educativa Andrés de Santa Cruz</strong>.
+            </p>
+            <p>
+                Nuestro propósito principal es promover activamente el respeto,
+                la empatía, la solidaridad y la construcción de un clima de paz
+                y bienestar entre todos los integrantes de la comunidad educativa.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- MODAL PARA VER EL INFOGRAMA COMPLETO -->
+<div id="modalImagen" class="modal" onclick="cerrarModal()">
+    <span class="cerrar-modal">&times;</span>
+    <img class="modal-contenido" id="imgAmpliada">
+</div>
+
+<!-- PIE DE PÁGINA -->
+<footer>
+    <h3>ESCUELA SEGURA</h3>
+    <p>Por una educación con respeto, igualdad y sin violencia.</p>
+    <p><strong>Unidad Educativa Andrés de Santa Cruz</strong></p>
+    <p>Proyecto de Prevención de la Violencia Escolar &copy; Convivencia Armónica</p>
+</footer>
+
+<script>
+function responder(correcto) {
+    const resultado = document.getElementById("resultado");
+
+    if (correcto) {
+        resultado.className = "resultado-exito";
+        resultado.textContent = "¡Excelente elección! Apoyar a tu compañero e informar a un docente o persona adulta es la mejor forma de detener la violencia.";
+    } else {
+        resultado.className = "resultado-error";
+        resultado.textContent = "Inténtalo de nuevo. Quedarse callado o reírse fomenta el acoso. Siempre debemos apoyar a quien la pasa mal.";
+    }
+}
+
+function abrirModal(src) {
+    const modal = document.getElementById("modalImagen");
+    const imgAmpliada = document.getElementById("imgAmpliada");
+    modal.style.display = "flex";
+    imgAmpliada.src = src;
+}
+
+function cerrarModal() {
+    document.getElementById("modalImagen").style.display = "none";
+}
+</script>
+
+</body>
+</html>
